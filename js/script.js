@@ -57,7 +57,7 @@ const quotes = [
  * `getRandomQuote` function
 ***/
 function getRandomQuote(arr){
-  const randomIndex = Math.floor(Math.random() * 7);
+  const randomIndex = Math.floor(Math.random() * (arr.length + 1));
   const randonQuote = arr[randomIndex];
   return randonQuote;
 }
@@ -106,7 +106,7 @@ function randomBg(){
   const y = Math.floor(Math.random() * 256);
   const z=  Math.floor(Math.random() * 256);
   const rgbValue = `${x},${y},${z}`;
-  body.style.background = `rgb(${rgbValue})`;
+  body.style.background = `rgb(${rgbValue})`;b
 }
 
 setInterval(printQuote,5000);
