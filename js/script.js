@@ -89,10 +89,25 @@ function printQuote(){
   quoteArea.innerHTML = printHTML;
 }
 
-
 /***
  * click event listener for the print quote button
  * DO NOT CHANGE THE CODE BELOW!!
 ***/
 
 document.getElementById('load-quote').addEventListener("click", printQuote, false);
+
+/***
+  automatically refresh quote and background color function 
+***/
+
+function randomBg(){
+  const body = document.querySelector("body");
+  const x = Math.floor(Math.random() * 256);
+  const y = Math.floor(Math.random() * 256);
+  const z=  Math.floor(Math.random() * 256);
+  const rgbValue = `${x},${y},${z}`;
+  body.style.background = `rgb(${rgbValue})`;
+}
+
+setInterval(printQuote,5000);
+setInterval(randomBg,5000);
