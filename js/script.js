@@ -21,19 +21,15 @@ const quotes = [
     quote:"It is better to be hated for what you are than to be loved for what you are not",
     source:"Autumn Leaves",
     citation:"André Gide",
-    year:"2007"
   },
   {
     quote:"The moment you doubt whether you can fly, you cease forever to be able to do it",
     source:"Peter Pan",
-    citation:"J.M. Barrie",
     year:"2015"
   },
   {
     quote:"Hoping for the best, prepared for the worst, and unsurprised by anything in between",
     source:"I Know Why the Caged Bird Sings ",
-    citation:"Maya Angelou",
-    year:"2009"
   },
   {
     quote:"And, now that you don’t have to be perfect you can be good",
@@ -43,9 +39,7 @@ const quotes = [
   },
   {
     quote:"We all require devotion to something more than ourselves for our lives to be endurable",
-    source:"Being Mortal ",
-    citation:" Atul Gawande",
-    year:"2017"
+    source:"Being Mortal "
   },
   {
     quote:"Even the darkest night will end and the sun will rise",
@@ -66,16 +60,28 @@ function getRandomQuote(arr){
   return randonQuote;
 }
 
+
 /***
  * `printQuote` function
 ***/
 function printQuote(){
-  const selectQuotes = getRandomQuote(quotes)
+  const selectQuotes = getRandomQuote(quotes);
   const quoteArea = document.getElementById("quote-box");
-  let printHTML = `
-    <p class="quote">${selectQuotes.quote}</p>
-    <p class="source">${selectQuotes.source}<span class="citation">${selectQuotes.citation}</span><span class="year">${selectQuotes.year}</span></p>
-  `
+  let printHTML = "";
+  if(selectQuotes.hasOwnProperty("citation") && selectQuotes.hasOwnProperty("year")){
+    printHTML = `<p class="quote">${selectQuotes.quote}</p>
+                 <p class="source">${selectQuotes.source}<span class="citation">${selectQuotes.citation}</span><span class="year">${selectQuotes.year}</span></p>`
+  }else if(selectQuotes.hasOwnProperty("citation")){
+    printHTML = `<p class="quote">${selectQuotes.quote}</p>
+                 <p class="source">${selectQuotes.source}<span class="citation">${selectQuotes.citation}</span></p>`
+  }else if(selectQuotes.hasOwnProperty("year")){
+    printHTML = `<p class="quote">${selectQuotes.quote}</p>
+                 <p class="source">${selectQuotes.source}<span class="year">${selectQuotes.year}</span></p>`
+  }else{
+    printHTML = `<p class="quote">${selectQuotes.quote}</p>
+                 <p class="source">${selectQuotes.source}</p>`
+  }
+  
   quoteArea.innerHTML = printHTML;
 }
 
