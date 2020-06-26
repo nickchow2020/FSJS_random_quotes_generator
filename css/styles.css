@@ -115,6 +115,17 @@ h1 {
   font-style: normal;
 }
 
+.price{
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-left: 1rem;
+  color: red;
+  text-shadow: 0 1px 2px white;
+  transform: rotate(15deg);
+}
+
+
 @media (min-width: 768px) {
   body {
     padding: 25px;
@@ -162,5 +173,9 @@ h1 {
 
   .source {
     font-size: 1.25rem;
+  }
+
+  .price{
+    font-size: 2.5rem;
   }
 }
